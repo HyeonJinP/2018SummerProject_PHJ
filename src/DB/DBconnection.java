@@ -6,25 +6,25 @@ import java.sql.SQLException;
 public class DBconnection 
 {
     public static Connection dbConn;
-    // µ¥ÀÌÅÍº£ÀÌ½º ¿¬°á ¼³Á¤
+    // ë°ì´í„°ë² ì´ìŠ¤ ì—°ê²° ì„¤ì •
     
         public static Connection getConnection()
         {
             Connection conn = null;
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                //Class.forName() : µ¿ÀûÀ¸·Î ÀÚ¹Ù Å¬·¡½º ·Îµù     
-                //com.mysql.jdbc.Driver : MySQLÀÇ JDBC µå¶óÀÌ¹ö Å¬·¡½º
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/member?useUnicode=true&characterEncoding=utf8", "root","super0115nhj&");
-                //DB ¿¬°á ÁÖ¼Ò, °èÁ¤ ÀÌ¸§, °èÁ¤ ºñ¹Ğ¹øÈ£
-                //µå¶óÀÌ¹ö ÀÖÀ» °æ¿ì DriverManager¿¡ µî·Ï
+                //Class.forName() : ë™ì ìœ¼ë¡œ ìë°” í´ë˜ìŠ¤ ë¡œë”©     
+                //com.mysql.jdbc.Driver : MySQLì˜ JDBC ë“œë¼ì´ë²„ í´ë˜ìŠ¤
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/member?useUnicode=true&characterEncoding=utf8", "root","ë¹„ë°€ë²ˆí˜¸");
+                //DB ì—°ê²° ì£¼ì†Œ, ê³„ì • ì´ë¦„, ê³„ì • ë¹„ë°€ë²ˆí˜¸
+                //ë“œë¼ì´ë²„ ìˆì„ ê²½ìš° DriverManagerì— ë“±ë¡
                 
-                System.out.println("Database¿¡ ¿¬°áµÇ¾ú½À´Ï´Ù.\n"); // ¿¬°á ¼º°ø ½Ã
+                System.out.println("Databaseì— ì—°ê²°ë˜ì—ˆìŠµë‹ˆë‹¤.\n"); // ì—°ê²° ì„±ê³µ ì‹œ
                 
-            } catch (ClassNotFoundException cnfe) { // ¿¬°á ½ÇÆĞ °æ¿ì
-                System.out.println("DB µå¶óÀÌ¹ö ·Îµù ½ÇÆĞ :"+cnfe.toString());
+            } catch (ClassNotFoundException cnfe) { // ì—°ê²° ì‹¤íŒ¨ ê²½ìš°
+                System.out.println("DB ë“œë¼ì´ë²„ ë¡œë”© ì‹¤íŒ¨ :"+cnfe.toString());
             } catch (SQLException sqle) {
-                System.out.println("DB Á¢¼Ó½ÇÆĞ : "+sqle.toString());
+                System.out.println("DB ì ‘ì†ì‹¤íŒ¨ : "+sqle.toString());
             } catch (Exception e) {
                 System.out.println("Unkonwn error");
                 e.printStackTrace();
